@@ -1,4 +1,10 @@
 # coding:utf-8
+"""
+   水平布局：QHBoxLayout
+   垂直布局：QVBoxLayout
+   布局的嵌套：setLayout
+   布局中添加控件：addWidget
+"""
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5.QtWidgets import QPushButton  # 按钮

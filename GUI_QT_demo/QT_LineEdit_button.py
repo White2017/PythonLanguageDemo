@@ -1,10 +1,10 @@
 # coding:utf-8
 """
-    按钮 / 单行输入框 / 输入对话框 控件
+    按钮 / 单行文本框 / 输入对话框 控件
 """
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication
-from PyQt5.QtWidgets import QLineEdit  # 单行输入框
+from PyQt5.QtWidgets import QLineEdit  # 单行文本框
 from PyQt5.QtWidgets import QInputDialog  # 输入对话框
 from PyQt5.QtWidgets import QPushButton  # 按钮
 
