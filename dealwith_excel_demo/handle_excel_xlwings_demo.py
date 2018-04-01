@@ -5,7 +5,6 @@
 import os
 import traceback
 
-import sys
 import xlwings as xw
 import pandas as pd
 
@@ -21,7 +20,7 @@ class ParseExcel(object):
             # 获取excel工作簿对象
             self.wb_obj = self.app.books.open(excel_file_path)
         except Exception as e:
-            traceback.print_exc(e)
+            traceback.print_exc()
 
     def getCell(self, sheet_name, row, col):
         """
@@ -83,4 +82,4 @@ if __name__ == "__main__":
     # # parse_excel.setCell('massage', 10, 10, 'python')
     # parse_excel.setTable('massage', 11, 11, 'helo')
     # parse_excel.save()
-    print(sys.stdin('数据类型错误，请输入list or DataFrame类型的数据!'))
+    pass

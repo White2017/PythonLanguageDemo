@@ -1,6 +1,9 @@
 # coding:utf-8  fxb_qzyx@163.com
 """
-   pyqt自定义信号槽：pyqtSignal
+   1.pyqt自定义信号槽：pyqtSignal
+   补充说明：QApplication.processEvents()
+        1.processEvents：事件处理程序，其作用是刷新页面；
+        2.常见用法：若存在阻塞主线程的代码，则可使用该语句来实时刷新界面，让界面看起来很流畅。
 """
 import sys
 from threading import Thread
