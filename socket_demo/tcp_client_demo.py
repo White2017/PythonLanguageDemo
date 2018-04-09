@@ -42,12 +42,9 @@ def send_commend_tcp_socket(host_ip, port, commend_str):
         # 关闭socket
         socket_obj.close()
 
-    print('hello world')
-
     return result
 
 
 if __name__ == "__main__":
     send_commend_tcp_socket('localhost', 50000, 'hello')
     pass
-
