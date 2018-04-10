@@ -34,8 +34,21 @@ class ParseExcel(object):
         cell_val = sheet_obj.range((row, col)).value
         return cell_val
 
-    def getRange(self):
-        pass
+    def getRange(self, sheet_name, min_row, min_col, max_row, max_col):
+        """
+         :brief 获取多行单元格的数据(包括一行/一列)，以列表的形式返回
+         :param sheet_name: sheet页名称
+         :param min_row: 左上角的行号
+         :param min_col: 左上角的列号
+         :param max_row: 右下角的行号
+         :param max_col: 右下角的列号
+         :return: 以列表的形式返回多行单元格的数据
+         """
+        # 获取excel的sheet页对象
+        sheet_obj = self.wb_obj.sheets[sheet_name]
+        # 获取excel指定的单元格所有数据
+        data_list = sheet_obj.range((min_row, min_col), (max_row, max_col)).value
+        return data_list
 
     def setCell(self, sheet_name, row, col, val):
         """
@@ -77,9 +90,9 @@ class ParseExcel(object):
 
 
 if __name__ == "__main__":
-    # parse_excel = ParseExcel('./excel_file/ExcelData.xlsx')
+    parse_excel = ParseExcel('./excel_file/ExcelData.xlsx')
     # parse_excel.getCell('massage', 1, 1)
+    print(parse_excel.getRange('massage', 1, 1, 3, 4))
     # # parse_excel.setCell('massage', 10, 10, 'python')
     # parse_excel.setTable('massage', 11, 11, 'helo')
-    # parse_excel.save()
-    pass
+    parse_excel.save()
