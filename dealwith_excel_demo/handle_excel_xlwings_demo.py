@@ -50,6 +50,40 @@ class ParseExcel(object):
         data_list = sheet_obj.range((min_row, min_col), (max_row, max_col)).value
         return data_list
 
+    def getTableMaxRowNum(self, sheet_name, row, col):
+        """
+        :brief 获取excel连续表格区域的最大行号
+        :param sheet_name: excel的sheet页名称
+        :param row: excel中表格左上角的行号
+        :param col: excel中表格左上角的列号
+        :return: 返回最大行号
+        """
+        # 获取excel的sheet页对象
+        sheet_obj = self.wb_obj.sheets[sheet_name]
+        # 获取连续表格的最后一个单元格对象
+        last_cell_obj = sheet_obj.range((row, col)).expand('table').last_cell
+        # 获取最后一个单元格的行号
+        max_row_num = last_cell_obj.row
+
+        return max_row_num
+
+    def getTableMaxColumnNum(self, sheet_name, row, col):
+        """
+        :brief 获取excel连续表格区域的最大列号
+        :param sheet_name: excel的sheet页名称
+        :param row: excel中表格的行号
+        :param col: excel中表格的列号
+        :return: 返回最大列号
+        """
+        # 获取excel的sheet页对象
+        sheet_obj = self.wb_obj.sheets[sheet_name]
+        # 获取连续表格的最后一个单元格对象
+        last_cell_obj = sheet_obj.range((row, col)).expand('table').last_cell
+        # 获取最后一个单元格的列号
+        max_column_num = last_cell_obj.column
+
+        return max_column_num
+
     def setCell(self, sheet_name, row, col, val):
         """
         :brief 给excel单元格添加数据
@@ -95,4 +129,6 @@ if __name__ == "__main__":
     print(parse_excel.getRange('massage', 1, 1, 3, 4))
     # # parse_excel.setCell('massage', 10, 10, 'python')
     # parse_excel.setTable('massage', 11, 11, 'helo')
+    print(parse_excel.getTableMaxRowNum('massage', 1, 1))
+    print(parse_excel.getTableMaxColumnNum('massage', 1, 1))
     parse_excel.save()
