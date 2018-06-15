@@ -1,0 +1,9 @@
+[2018-06-15 22:23:12]-[Line:85]-DEBUG: python debug test
+[2018-06-15 22:23:12]-[Line:86]-WARNING: python warn test
+[2018-06-15 22:23:12]-[Line:87]-INFO: python info test
+[2018-06-15 22:24:36]-[Line:85]-DEBUG: python debug test
+[2018-06-15 22:24:36]-[Line:86]-WARNING: python warn test
+[2018-06-15 22:24:36]-[Line:87]-INFO: python info test
+[2018-06-15 22:24:55]-[Line:85]-DEBUG: python debug test
+[2018-06-15 22:24:55]-[Line:86]-WARNING: python warn test
+[2018-06-15 22:24:55]-[Line:87]-INFO: python info test
