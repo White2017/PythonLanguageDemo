@@ -88,7 +88,9 @@ class ParseExcel(object):
         iter_rows = sheet_obj.iter_rows(min_row=min_row, min_col=min_col, max_row=max_row, max_col=max_col)
         # 降维：降成一维
         iter_rows = [cell_obj for row_obj in iter_rows for cell_obj in row_obj]
-        data_list = [cell_data for row_data_list in data_list for cell_data in row_data_list]
+
+        if isinstance(data_list[0], list):  # 若为列表则为二维数组，降成一维
+            data_list = [cell_data for row_data_list in data_list for cell_data in row_data_list]
         # 将数据写入对应的单元格
         for cell_obj, cell_data in zip(iter_rows, data_list):
             cell_obj.value = cell_data
